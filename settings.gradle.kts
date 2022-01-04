@@ -1,3 +1,6 @@
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+enableFeaturePreview("VERSION_CATALOGS")
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
@@ -5,5 +8,15 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
+
 rootProject.name = "FlightAeroCompose"
+
 include(":app")
+include(":core")
+include(":feature")
+include(":core:common")
+include(":core:ui")
+include(":core:di")
+include(":core:network")
+include(":core:navigation")
+include(":feature:splash")

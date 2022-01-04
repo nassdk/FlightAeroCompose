@@ -1,9 +1,8 @@
 plugins {
     id("com.android.application")
-    id("kotlin-android")
+    kotlin(module = "android")
+    kotlin(module = "kapt")
 }
-
-val composeVersion = "1.0.0"
 
 android {
     compileSdk = 31
@@ -43,7 +42,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = composeVersion
+        kotlinCompilerExtensionVersion = "1.0.5"
     }
 
     packagingOptions {
@@ -53,15 +52,16 @@ android {
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.7.0")
-    implementation("androidx.appcompat:appcompat:1.4.0")
+    projects.run {
+        implementation(dependencyNotation = core.common)
 
-    implementation("androidx.compose.ui:ui:$composeVersion")
-    implementation("androidx.compose.material:material:$composeVersion")
-    implementation("androidx.compose.ui:ui-tooling-preview:$composeVersion")
+        implementation(dependencyNotation = feature.splash)
+    }
 
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0")
-    implementation("androidx.activity:activity-compose:1.4.0")
+    libs.run {
+        implementation(dependencyNotation = androidx.activityCompose)
+        implementation(dependencyNotation = accompanist.systemUiController)
 
-    implementation("com.google.android.material:material:1.4.0")
+        kapt(dependencyNotation = daggerCompiler)
+    }
 }

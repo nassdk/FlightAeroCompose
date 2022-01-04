@@ -3,14 +3,16 @@
     package="com.nassdk.aero">
 
     <application
+        android:name=".AppDelegate"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FlightAeroCompose">
+
         <activity
-            android:name=".MainActivity"
+            android:name=".AppActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.FlightAeroCompose.NoActionBar">
@@ -20,6 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>
