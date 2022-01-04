@@ -7,11 +7,10 @@ import com.nassdk.common.coroutines.error.CoroutineErrorHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.channels.BufferOverflow
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
@@ -25,7 +24,7 @@ abstract class BaseViewModel<S : BaseViewState, E : BaseViewEvent>(
     private val state = MutableStateFlow(initialState)
 
     protected val viewState
-        get() = state.asStateFlow().filterNotNull()
+        get() = state.asStateFlow()
 
     protected val intent =
         MutableSharedFlow<E>(extraBufferCapacity = 1, onBufferOverflow = BufferOverflow.DROP_OLDEST)
@@ -41,7 +40,7 @@ abstract class BaseViewModel<S : BaseViewState, E : BaseViewEvent>(
     protected abstract fun observe(event: E)
 
     fun perform(viewEvent: E) = intent.tryEmit(viewEvent)
-    fun viewState(): Flow<S> = viewState
+    fun viewState(): StateFlow<S> = viewState
 
     protected fun launchCoroutine(
         exceptionListener: (() -> Unit)? = null,
