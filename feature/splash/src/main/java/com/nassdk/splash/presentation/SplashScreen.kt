@@ -11,12 +11,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
 import com.nassdk.common.base.BaseViewModel
 import com.nassdk.splash.R
 import com.nassdk.splash.presentation.model.SplashViewEvent
 import com.nassdk.splash.presentation.model.SplashViewState
 import com.nassdk.ui.theme.AeroTheme
-import com.nassdk.ui.theme.dimen_32
 
 @Composable
 fun SplashScreen(viewModel: BaseViewModel<SplashViewState, SplashViewEvent>) {
@@ -34,11 +34,12 @@ fun SplashScreen(viewModel: BaseViewModel<SplashViewState, SplashViewEvent>) {
             )
 
             CircularProgressIndicator(
+                strokeWidth = 3.dp,
                 color = AeroTheme.colors.spinnerColor,
                 modifier = Modifier
                     .align(alignment = Alignment.BottomCenter)
-                    .padding(bottom = dimen_32)
-                    .size(size = dimen_32)
+                    .padding(bottom = 28.dp)
+                    .size(size = 28.dp)
             )
         }
     )
