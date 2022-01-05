@@ -8,18 +8,25 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.nassdk.common.base.BaseViewModel
+import com.nassdk.navigation.Screens
 import com.nassdk.splash.R
-import com.nassdk.splash.presentation.model.SplashViewEvent
-import com.nassdk.splash.presentation.model.SplashViewState
+import com.nassdk.splash.presentation.mvi.SplashViewEvent
+import com.nassdk.splash.presentation.mvi.SplashViewState
 import com.nassdk.ui.theme.AeroTheme
+import kotlinx.coroutines.delay
 
 @Composable
-fun SplashScreen(viewModel: BaseViewModel<SplashViewState, SplashViewEvent>) {
+fun SplashScreen(
+    viewModel: BaseViewModel<SplashViewState, SplashViewEvent>,
+    navController: NavController,
+) {
 
     Box(
         modifier = Modifier
@@ -44,4 +51,17 @@ fun SplashScreen(viewModel: BaseViewModel<SplashViewState, SplashViewEvent>) {
         }
     )
 
+    LaunchedEffect(
+        key1 = Unit, block = {
+            delay(2000)
+            navController.navigate(
+                route = Screens.Flow.route,
+                builder = {
+                    popUpTo(Screens.Splash.route) {
+                        inclusive = true
+                    }
+                }
+            )
+        }
+    )
 }

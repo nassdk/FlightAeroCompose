@@ -8,7 +8,8 @@ data class AeroColors(
     val primaryBackground: Color,
     val primaryText: Color,
     val secondaryText: Color,
-    val spinnerColor: Color
+    val spinnerColor: Color,
+    val secondaryBackground: Color,
 )
 
 object AeroTheme {

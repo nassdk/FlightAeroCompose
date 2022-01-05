@@ -1,4 +1,4 @@
-package com.nassdk.splash.presentation.model
+package com.nassdk.splash.presentation.mvi
 
 import com.nassdk.common.base.BaseViewEvent
 

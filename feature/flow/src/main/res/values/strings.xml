@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="flow_tab_flights_title">Авиаперелеты</string>
+    <string name="flow_tab_profile_title">Профиль</string>
+</resources>

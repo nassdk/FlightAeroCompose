@@ -1,8 +1,8 @@
 package com.nassdk.splash
 
 import com.nassdk.common.base.BaseViewModel
-import com.nassdk.splash.presentation.model.SplashViewEvent
-import com.nassdk.splash.presentation.model.SplashViewState
+import com.nassdk.splash.presentation.mvi.SplashViewEvent
+import com.nassdk.splash.presentation.mvi.SplashViewState
 
 interface SplashApi {
 

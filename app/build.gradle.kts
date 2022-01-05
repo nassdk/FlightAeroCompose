@@ -56,6 +56,9 @@ dependencies {
         implementation(dependencyNotation = core.common)
 
         implementation(dependencyNotation = feature.splash)
+        implementation(dependencyNotation = feature.flow)
+        implementation(dependencyNotation = feature.flights)
+        implementation(dependencyNotation = feature.profile)
     }
 
     libs.run {

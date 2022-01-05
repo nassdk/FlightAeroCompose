@@ -6,11 +6,8 @@ import androidx.activity.compose.setContent
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.Surface
-import androidx.compose.runtime.SideEffect
-import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.nassdk.ui.theme.AeroTheme
 import com.nassdk.ui.theme.FlightAeroTheme
-import com.nassdk.ui.theme.White_F1F1F1
 import javax.inject.Inject
 
 class AppActivity : ComponentActivity() {
@@ -24,21 +21,9 @@ class AppActivity : ComponentActivity() {
 
         setContent {
 
-            val isDarkMode = isSystemInDarkTheme()
-
             FlightAeroTheme(
-                darkTheme = isDarkMode,
+                darkTheme = isSystemInDarkTheme(),
                 content = {
-                    val systemUiController = rememberSystemUiController()
-
-                    SideEffect(
-                        effect = {
-                            systemUiController.setSystemBarsColor(
-                                color = if (isDarkMode) White_F1F1F1 else White_F1F1F1
-                            )
-                        }
-                    )
-
                     Surface(
                         color = AeroTheme.colors.primaryBackground,
                         content = {

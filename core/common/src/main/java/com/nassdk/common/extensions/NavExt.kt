@@ -23,14 +23,14 @@ private const val ANIMATION_OFFSET = 1000
 
 @ExperimentalAnimationApi
 fun NavGraphBuilder.aeroComposable(
-    route: NavTarget,
+    target: NavTarget,
     arguments: List<NamedNavArgument> = emptyList(),
     deepLinks: List<NavDeepLink> = emptyList(),
     transitionType: TransitionType = TransitionType.HORIZONTAL,
     content: @Composable AnimatedVisibilityScope.(NavBackStackEntry) -> Unit,
 ) {
     composable(
-        route = route.route,
+        route = target.route,
         arguments = arguments,
         deepLinks = deepLinks,
         enterTransition = { getEnterTransition(type = transitionType) },
