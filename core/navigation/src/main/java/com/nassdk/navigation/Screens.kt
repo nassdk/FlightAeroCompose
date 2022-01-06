@@ -1,20 +1,20 @@
 package com.nassdk.navigation
 
-sealed class Screens {
+sealed class Screens : NavTarget {
 
-    object Splash : NavTarget {
+    object Splash : Screens() {
         override val route: String = "splash"
     }
 
-    object Flow : NavTarget {
+    object Flow : Screens() {
         override val route: String = "flow"
     }
 
-    object Flights : NavTarget {
+    object Flights : Screens() {
         override val route: String = "flights"
     }
 
-    object Profile : NavTarget {
+    object Profile : Screens() {
         override val route: String = "profile"
     }
 }

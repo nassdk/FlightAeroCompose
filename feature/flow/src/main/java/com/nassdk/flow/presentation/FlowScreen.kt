@@ -9,9 +9,11 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavGraphBuilder
+import androidx.navigation.compose.currentBackStackEntryAsState
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
@@ -27,6 +29,9 @@ fun FlowScreen(flowGraphBuilder: NavGraphBuilder.() -> Unit) {
     val navController = rememberAnimatedNavController()
     val navItems = arrayOf(TabItem.FLIGHTS, TabItem.PROFILE)
     val isDarkMode = isSystemInDarkTheme()
+
+    val navBackStackEntry by navController.currentBackStackEntryAsState()
+    val currentRoute = navBackStackEntry?.destination?.route
 
     val systemUiController = rememberSystemUiController()
 
@@ -45,11 +50,24 @@ fun FlowScreen(flowGraphBuilder: NavGraphBuilder.() -> Unit) {
                 content = {
                     navItems.forEach { target ->
                         BottomNavigationItem(
-                            selected = false,
+                            selected = currentRoute == target.route,
+                            selectedContentColor = AeroTheme.colors.tintPrimary,
+                            unselectedContentColor = AeroTheme.colors.tintSecondary,
+                            alwaysShowLabel = true,
                             onClick = {
-                                navController.navigate(target.route) {
-                                    launchSingleTop = true
-                                }
+                                navController.navigate(
+                                    route = target.route, builder = {
+                                        navController.graph.startDestinationRoute?.let { route ->
+                                            popUpTo(
+                                                route = route, popUpToBuilder = {
+                                                    saveState = true
+                                                }
+                                            )
+                                        }
+                                        launchSingleTop = true
+                                        restoreState = true
+                                    }
+                                )
                             },
                             label = {
                                 Text(text = stringResource(id = target.title))

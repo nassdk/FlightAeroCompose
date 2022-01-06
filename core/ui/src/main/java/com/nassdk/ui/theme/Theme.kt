@@ -10,6 +10,8 @@ data class AeroColors(
     val secondaryText: Color,
     val spinnerColor: Color,
     val secondaryBackground: Color,
+    val tintPrimary: Color,
+    val tintSecondary: Color
 )
 
 object AeroTheme {

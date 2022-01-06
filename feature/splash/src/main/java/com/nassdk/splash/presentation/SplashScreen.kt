@@ -57,9 +57,11 @@ fun SplashScreen(
             navController.navigate(
                 route = Screens.Flow.route,
                 builder = {
-                    popUpTo(Screens.Splash.route) {
-                        inclusive = true
-                    }
+                    popUpTo(
+                        route = Screens.Splash.route, popUpToBuilder = {
+                            inclusive = true
+                        }
+                    )
                 }
             )
         }
