@@ -5,21 +5,30 @@ import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 
 data class AeroColors(
+    val headerColor: Color,
     val primaryBackground: Color,
     val primaryText: Color,
     val secondaryText: Color,
     val spinnerColor: Color,
     val secondaryBackground: Color,
     val tintPrimary: Color,
-    val tintSecondary: Color
+    val tintSecondary: Color,
 )
 
 object AeroTheme {
     val colors: AeroColors
         @Composable
         get() = LocalAeroColors.current
+
+    val typegraphy: AeroTypography
+        @Composable
+        get() = LocalAeroTypography.current
 }
 
 val LocalAeroColors = staticCompositionLocalOf<AeroColors> {
+    error("No colors provided")
+}
+
+val LocalAeroTypography = staticCompositionLocalOf<AeroTypography> {
     error("No colors provided")
 }
