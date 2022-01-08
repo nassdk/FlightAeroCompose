@@ -1,5 +1,6 @@
 plugins {
     id("com.android.library")
+    id("kotlinx-serialization")
     kotlin(module = "android")
     kotlin(module = "kapt")
 }

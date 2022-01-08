@@ -32,9 +32,9 @@ val familyRubik = FontFamily(
 
 data class AeroTypography(
     val headerBoldRubik: TextStyle,
-    val headerRegRoboto: TextStyle,
-    val headerRegCons: TextStyle,
-    val bodyRegRoboto: TextStyle,
+    val headerMedRoboto: TextStyle,
+    val headerMedCons: TextStyle,
+    val bodyMedRoboto: TextStyle,
     val subMedRoboto: TextStyle,
     val buttonMedRoboto: TextStyle,
 )
@@ -45,30 +45,30 @@ val typography = AeroTypography(
         fontFamily = familyRubik,
         fontWeight = FontWeight.Bold
     ),
-    headerRegCons = TextStyle(
+    headerMedCons = TextStyle(
         fontSize = 40.sp,
         fontFamily = familyConsolas,
-        fontWeight = FontWeight.Normal
+        fontWeight = FontWeight.Medium
     ),
-    headerRegRoboto = TextStyle(
+    headerMedRoboto = TextStyle(
         fontSize = text_20,
         fontFamily = familyRoboto,
-        fontWeight = FontWeight.Normal
+        fontWeight = FontWeight.Medium
     ),
-    bodyRegRoboto = TextStyle(
+    bodyMedRoboto = TextStyle(
         fontSize = text_14,
         fontFamily = familyRoboto,
-        fontWeight = FontWeight.Normal
+        fontWeight = FontWeight.Medium
     ),
     subMedRoboto = TextStyle(
         fontSize = text_12,
         fontFamily = familyRoboto,
-        fontWeight = FontWeight.Normal
+        fontWeight = FontWeight.Medium
     ),
     buttonMedRoboto = TextStyle(
         fontSize = text_14,
         fontFamily = familyRoboto,
-        fontWeight = FontWeight.Normal
+        fontWeight = FontWeight.Medium
     )
 
 )

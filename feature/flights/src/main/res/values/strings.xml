@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="flights_title">AirInfo</string>
+    <string name="flights_go_into_flight_title">Перейти</string>
+    <string name="flights_flight_number">Рейс №%s</string>
+
+    <string name="flights_status_name_in_flight">В полете</string>
+
+    <string name="flights_status_name_scheduled">Перенесен</string>
+
+    <string name="flights_status_name_landed">Приземлился</string>
+
+    <string name="flights_status_name_canceled">Отменен</string>
+    <string name="flights_header_title">AirInfo</string>
+</resources>

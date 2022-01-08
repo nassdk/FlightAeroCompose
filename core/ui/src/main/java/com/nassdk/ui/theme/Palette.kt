@@ -8,7 +8,8 @@ internal val DarkPalette = AeroColors(
     spinnerColor = Orange_FF9A8D,
     secondaryBackground = White,
     tintPrimary = Blue_4A536B,
-    tintSecondary = Blue_9099B1
+    tintSecondary = Blue_9099B1,
+    dividerColor = Gray_D8D8D8
 )
 
 internal val LightPalette = AeroColors(
@@ -19,5 +20,6 @@ internal val LightPalette = AeroColors(
     spinnerColor = Orange_FF9A8D,
     secondaryBackground = White,
     tintPrimary = Blue_4A536B,
-    tintSecondary = Blue_9099B1
+    tintSecondary = Blue_9099B1,
+    dividerColor = Gray_D8D8D8
 )

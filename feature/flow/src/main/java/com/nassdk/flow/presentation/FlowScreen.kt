@@ -3,6 +3,7 @@ package com.nassdk.flow.presentation
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Scaffold
@@ -10,6 +11,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavGraphBuilder
@@ -83,11 +85,12 @@ fun FlowScreen(flowGraphBuilder: NavGraphBuilder.() -> Unit) {
                 }
             )
         },
-        content = {
+        content = { padding ->
 
             AnimatedNavHost(
                 navController = navController,
                 startDestination = Screens.Flights.route,
+                modifier = Modifier.padding(paddingValues = padding),
                 builder = flowGraphBuilder
             )
         }

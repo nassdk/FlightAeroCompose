@@ -1,5 +1,7 @@
 package com.nassdk.common.base
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.nassdk.common.coroutines.CoroutinesDispatcherProvider
@@ -8,9 +10,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
@@ -21,10 +20,8 @@ abstract class BaseViewModel<S : BaseViewState, E : BaseViewEvent>(
     private val dispatcherProvider: CoroutinesDispatcherProvider = CoroutinesDispatcherProvider(),
 ) : ViewModel() {
 
-    private val state = MutableStateFlow(initialState)
-
-    protected val viewState
-        get() = state.asStateFlow()
+    val _viewState: MutableLiveData<S> = MutableLiveData(initialState)
+    val viewState: LiveData<S> get() = _viewState
 
     protected val intent =
         MutableSharedFlow<E>(extraBufferCapacity = 1, onBufferOverflow = BufferOverflow.DROP_OLDEST)
@@ -34,13 +31,22 @@ abstract class BaseViewModel<S : BaseViewState, E : BaseViewEvent>(
     }
 
     protected fun updateState(block: S.() -> S) {
-        state.value = block.invoke(state.value)
+        _viewState.value = block.invoke(
+            checkNotNull(viewState.value)
+        )
+    }
+
+    protected fun updateStateFromIo(block: S.() -> S) {
+        _viewState.postValue(
+            block.invoke(
+                checkNotNull(viewState.value)
+            )
+        )
     }
 
     protected abstract fun observe(event: E)
 
     fun perform(viewEvent: E) = intent.tryEmit(viewEvent)
-    fun viewState(): StateFlow<S> = viewState
 
     protected fun launchCoroutine(
         exceptionListener: (() -> Unit)? = null,

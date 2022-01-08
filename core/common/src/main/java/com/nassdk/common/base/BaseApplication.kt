@@ -2,6 +2,8 @@ package com.nassdk.common.base
 
 import android.app.Application
 import com.nassdk.common.di.DaggerBaseComponent
+import com.nassdk.network.BuildConfig
+import timber.log.Timber
 
 abstract class BaseApplication : Application() {
 
@@ -11,6 +13,19 @@ abstract class BaseApplication : Application() {
 
     val baseComponent by lazy {
         DaggerBaseComponent.factory().create(context = this)
+    }
+
+    override fun onCreate() {
+        super.onCreate()
+
+        initTimber()
+    }
+
+    private fun initTimber() {
+
+        if (BuildConfig.DEBUG) {
+            Timber.plant(Timber.DebugTree())
+        }
     }
 
     companion object {

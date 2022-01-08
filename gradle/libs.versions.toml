@@ -21,6 +21,8 @@ compose = "1.0.5"
 composeActivity = "1.4.0"
 navanimation = "0.22.0-rc"
 systemUiController = "0.22.0-rc"
+placeholder = "0.12.0"
+constraint = "1.0.0-rc02"
 
 [libraries]
 androidx-appCompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appCompat" }
@@ -35,9 +37,12 @@ androidx-lifecycle-common = { group = "androidx.lifecycle", name = "lifecycle-co
 compose-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "compose" }
 compose-material = { group = "androidx.compose.material", name = "material", version.ref = "compose" }
 compose-uiTooling = { group = "androidx.compose.ui", name = "ui-tooling-preview", version.ref = "compose" }
+compose-constraint = { group = "androidx.constraintlayout", name = "constraintlayout-compose", version.ref = "constraint" }
+compose-livedata = { group = "androidx.compose.runtime", name = "runtime-livedata", version.ref = "compose" }
 
 accompanist-navanimation = { group = "com.google.accompanist", name = "accompanist-navigation-animation", version.ref = "navanimation" }
 accompanist-systemUiController = { group = "com.google.accompanist", name = "accompanist-systemuicontroller", version.ref = "systemUiController" }
+accompanist-placeholder = { group = "com.google.accompanist", name = "accompanist-placeholder-material", version.ref = "placeholder" }
 
 dagger = { group = "com.google.dagger", name = "dagger", version.ref = "dagger" }
 daggerCompiler = { group = "com.google.dagger", name = "dagger-compiler", version.ref = "dagger" }
@@ -65,7 +70,8 @@ plugin-serialization = { group = "org.jetbrains.kotlin", name = "kotlin-serializ
 composeUi = [
     "compose-ui",
     "compose-material",
-    "compose-uiTooling"
+    "compose-uiTooling",
+    "compose-constraint"
 ]
 
 lifecycle = [

@@ -46,7 +46,9 @@ dependencies {
         implementation(dependencyNotation = androidx.datastore)
 
         api(dependencyNotation = kotlin.coroutines)
+        api(dependencyNotation = timber)
         api(dependencyNotation = bundles.lifecycle)
+        api(dependencyNotation = compose.livedata)
 
         kapt(dependencyNotation = daggerCompiler)
     }

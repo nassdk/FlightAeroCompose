@@ -13,6 +13,7 @@ data class AeroColors(
     val secondaryBackground: Color,
     val tintPrimary: Color,
     val tintSecondary: Color,
+    val dividerColor: Color
 )
 
 object AeroTheme {

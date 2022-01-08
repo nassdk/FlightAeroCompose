@@ -32,6 +32,6 @@ internal class NetworkApiImpl @Inject constructor() : NetworkApi {
 //    }
 
     private companion object {
-        private const val BASE_URL = "" //TODO
+        private const val BASE_URL = "http://api.aviationstack.com/v1/"
     }
 }
