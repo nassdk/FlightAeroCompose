@@ -27,6 +27,7 @@ fun MainGraph() {
 
             aeroComposable(
                 target = Screens.Splash,
+                transitionType = TransitionType.NONE,
                 content = {
 
                     val viewModel = composeViewModel {
