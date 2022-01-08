@@ -8,6 +8,8 @@ data class AeroColors(
     val headerColor: Color,
     val primaryBackground: Color,
     val primaryText: Color,
+    val primaryButton: Color,
+    val secondaryButton: Color,
     val secondaryText: Color,
     val spinnerColor: Color,
     val secondaryBackground: Color,
