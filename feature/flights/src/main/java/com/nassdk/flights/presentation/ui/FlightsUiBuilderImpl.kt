@@ -1,5 +1,6 @@
 package com.nassdk.flights.presentation.ui
 
+import androidx.compose.runtime.mutableStateListOf
 import com.nassdk.common.extensions.orZero
 import com.nassdk.common.extensions.uiLazy
 import com.nassdk.common.helpers.ItemUi
@@ -10,8 +11,10 @@ import javax.inject.Inject
 
 internal class FlightsUiBuilderImpl @Inject constructor() : FlightsUiBuilder {
 
-    override val items: MutableList<ItemUi> by uiLazy { mutableListOf() }
+    override val items by uiLazy { mutableStateListOf<ItemUi>() }
+
     override var paginationState: PaginationEntity? = null
+
     override val shouldPaginate: Boolean
         get() = paginationState?.offset.orZero() % DEFAULT_PAGINATION_LIMIT == 0
 
@@ -29,8 +32,6 @@ internal class FlightsUiBuilderImpl @Inject constructor() : FlightsUiBuilder {
     }
 
     private fun checkForPaginationState() {
-
-        val shouldPaginate = paginationState?.offset.orZero() % DEFAULT_PAGINATION_LIMIT == 0
 
         if (shouldPaginate) {
             items.add(FlightsListModel.Loading)

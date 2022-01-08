@@ -4,7 +4,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
@@ -26,7 +25,6 @@ fun FlightsScreen(viewModel: BaseViewModel<FlightsViewState, FlightsViewEvent>) 
         modifier = Modifier
             .fillMaxSize()
             .background(color = AeroTheme.colors.primaryBackground),
-
         content = {
 
             AppBar()
@@ -37,12 +35,6 @@ fun FlightsScreen(viewModel: BaseViewModel<FlightsViewState, FlightsViewEvent>) 
                     viewModel.perform(viewEvent = FlightsViewEvent.LoadNextPage)
                 }
             )
-        }
-    )
-
-    LaunchedEffect(
-        key1 = Unit, block = {
-            viewModel.perform(viewEvent = FlightsViewEvent.LoadNextPage)
         }
     )
 }

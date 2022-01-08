@@ -9,6 +9,7 @@ import com.nassdk.flights.presentation.mvi.FlightsViewEvent
 import com.nassdk.flights.presentation.mvi.FlightsViewState
 import com.nassdk.flights.presentation.ui.FlightsUiBuilder
 import javax.inject.Inject
+import kotlinx.coroutines.delay
 
 class FlightsViewModel @Inject constructor(
     private val uiBuilder: FlightsUiBuilder,
