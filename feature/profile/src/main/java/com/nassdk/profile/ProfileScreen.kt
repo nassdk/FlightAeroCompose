@@ -21,6 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.nassdk.profile.views.AppBar
@@ -131,7 +132,7 @@ fun ProfileScreen() {
                             )
 
                             Text(
-                                text = "Мои даннные",
+                                text = stringResource(id = R.string.profile_my_info_btn_title),
                                 style = AeroTheme.typegraphy.buttonMedRoboto,
                                 color = AeroTheme.colors.secondaryButton,
                                 modifier = Modifier
@@ -166,7 +167,7 @@ fun ProfileScreen() {
                             )
 
                             Text(
-                                text = "Избранные рейсы",
+                                text = stringResource(id = R.string.profile_favorites_btn_title),
                                 style = AeroTheme.typegraphy.buttonMedRoboto,
                                 color = AeroTheme.colors.secondaryButton,
                                 modifier = Modifier
@@ -208,7 +209,7 @@ fun ProfileScreen() {
                     )
 
                     Text(
-                        text = "Избранные рейсы",
+                        text = stringResource(id = R.string.profile_settings_btn_title),
                         style = AeroTheme.typegraphy.buttonMedRoboto,
                         color = AeroTheme.colors.secondaryButton,
                         modifier = Modifier

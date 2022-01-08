@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="profile_header_title">Profile</string>
+    <string name="profile_my_info_btn_title">Мои даннные</string>
+    <string name="profile_favorites_btn_title">Избранные рейсы</string>
+    <string name="profile_settings_btn_title">Настройки</string>
 </resources>
