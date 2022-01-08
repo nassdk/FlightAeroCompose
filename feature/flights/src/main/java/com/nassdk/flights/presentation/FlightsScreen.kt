@@ -12,6 +12,7 @@ import com.nassdk.flights.presentation.mvi.FlightsViewEvent
 import com.nassdk.flights.presentation.mvi.FlightsViewState
 import com.nassdk.flights.presentation.views.AppBar
 import com.nassdk.flights.presentation.views.ContentView
+import com.nassdk.flights.presentation.views.LoadingScreen
 import com.nassdk.ui.theme.AeroTheme
 
 @Composable
@@ -29,12 +30,18 @@ fun FlightsScreen(viewModel: BaseViewModel<FlightsViewState, FlightsViewEvent>) 
 
             AppBar()
 
-            ContentView(
-                content = screenState.content,
-                loadNextPage = {
-                    viewModel.perform(viewEvent = FlightsViewEvent.LoadNextPage)
-                }
-            )
+            if (screenState.isLoading) {
+                LoadingScreen()
+            }
+
+            if (screenState.isLoading.not()) {
+                ContentView(
+                    content = screenState.content,
+                    loadNextPage = {
+                        viewModel.perform(viewEvent = FlightsViewEvent.LoadNextPage)
+                    }
+                )
+            }
         }
     )
 }

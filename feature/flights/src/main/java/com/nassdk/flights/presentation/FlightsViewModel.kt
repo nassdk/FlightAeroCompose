@@ -34,7 +34,15 @@ class FlightsViewModel @Inject constructor(
 
         if (uiBuilder.shouldPaginate.not()) return
 
+        if (uiBuilder.paginationState?.offset.orZero() == 0) {
+            updateState {
+                copy(isLoading = true)
+            }
+        }
+
         launchIOCoroutine {
+            delay(timeMillis = 2000)
+
             val response = repository.getRealTimeFlights(
                 offset = uiBuilder.paginationState?.offset.orZero()
             )
@@ -43,7 +51,7 @@ class FlightsViewModel @Inject constructor(
             uiBuilder.addFlights(flights = response.flights)
 
             updateStateFromIo {
-                copy(content = uiBuilder.items)
+                copy(content = uiBuilder.items, isLoading = false)
             }
         }
     }

@@ -12,7 +12,7 @@ import androidx.compose.ui.unit.dp
 import com.nassdk.ui.theme.AeroTheme
 
 @Composable
-fun LoadingItem() {
+internal fun LoadingItem() {
 
     Box(
         modifier = Modifier

@@ -10,3 +10,9 @@ val Blue_9099B1 = Color(0xFF9099B1)
 val Gray_979797 = Color(0xFF979797)
 val Gray_D8D8D8 = Color(0xFFD8D8D8)
 val Orange_FF9A8D = Color(0xFFFF9A8D)
+
+val ShimmerColorShades = listOf(
+    Color.LightGray.copy(0.9f),
+    Color.LightGray.copy(0.2f),
+    Color.LightGray.copy(0.9f)
+)
