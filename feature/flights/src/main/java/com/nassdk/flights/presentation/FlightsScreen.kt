@@ -4,8 +4,8 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import com.nassdk.common.base.BaseViewModel
 import com.nassdk.flights.presentation.mvi.FlightsViewEvent
@@ -18,9 +18,7 @@ import com.nassdk.ui.theme.AeroTheme
 @Composable
 fun FlightsScreen(viewModel: BaseViewModel<FlightsViewState, FlightsViewEvent>) {
 
-    val screenState by viewModel.viewState.observeAsState(
-        initial = FlightsViewState.provideInitialViewState()
-    )
+    val screenState by viewModel.viewState.collectAsState()
 
     Column(
         modifier = Modifier
