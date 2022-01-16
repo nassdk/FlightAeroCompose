@@ -23,8 +23,6 @@ import com.nassdk.flights.R
 import com.nassdk.flights.presentation.ui.FlightsListModel
 import com.nassdk.ui.helpers.DashedLine
 import com.nassdk.ui.theme.AeroTheme
-import com.nassdk.ui.theme.dimen_16
-import com.nassdk.ui.theme.dimen_8
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
@@ -34,7 +32,7 @@ internal fun FlightItem(entity: FlightsListModel.Flight) {
         onClick = { /*TODO*/ },
         enabled = false,
         shape = RoundedCornerShape(size = 20.dp),
-        elevation = 4.dp,
+        elevation = AeroTheme.dimens.dp4,
         backgroundColor = AeroTheme.colors.secondaryBackground,
         modifier = Modifier.fillMaxWidth(),
         content = {
@@ -42,7 +40,7 @@ internal fun FlightItem(entity: FlightsListModel.Flight) {
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(vertical = dimen_16),
+                    .padding(vertical = AeroTheme.dimens.dp16),
 
                 content = {
 
@@ -52,7 +50,7 @@ internal fun FlightItem(entity: FlightsListModel.Flight) {
 
                     Divider(
                         modifier = Modifier
-                            .padding(top = 16.dp)
+                            .padding(top = AeroTheme.dimens.dp16)
                             .fillMaxWidth()
                             .background(color = AeroTheme.colors.dividerColor)
                     )
@@ -70,7 +68,7 @@ private fun TrajectoryView() {
     ConstraintLayout(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = dimen_16),
+            .padding(horizontal = AeroTheme.dimens.dp16),
 
         content = {
 
@@ -157,9 +155,9 @@ private fun FlightInfo(entity: FlightsListModel.Flight) {
 
     ConstraintLayout(
         modifier = Modifier
-            .padding(top = dimen_16)
+            .padding(top = AeroTheme.dimens.dp16)
             .fillMaxWidth()
-            .padding(horizontal = dimen_16),
+            .padding(horizontal = AeroTheme.dimens.dp16),
         content = {
             val (departureCity, departureTime, arrivalCity, arrivalTime, statusTitle) = createRefs()
 
@@ -181,7 +179,7 @@ private fun FlightInfo(entity: FlightsListModel.Flight) {
                 style = AeroTheme.typegraphy.subMedRoboto,
                 color = AeroTheme.colors.secondaryText,
                 modifier = Modifier
-                    .padding(top = dimen_8)
+                    .padding(top = AeroTheme.dimens.dp8)
                     .constrainAs(
                         ref = departureTime,
                         constrainBlock = {
@@ -209,7 +207,7 @@ private fun FlightInfo(entity: FlightsListModel.Flight) {
                 style = AeroTheme.typegraphy.subMedRoboto,
                 color = AeroTheme.colors.secondaryText,
                 modifier = Modifier
-                    .padding(top = dimen_8)
+                    .padding(top = AeroTheme.dimens.dp8)
                     .constrainAs(
                         ref = arrivalTime,
                         constrainBlock = {
@@ -224,7 +222,7 @@ private fun FlightInfo(entity: FlightsListModel.Flight) {
                 style = AeroTheme.typegraphy.bodyMedRoboto,
                 color = entity.status.tint,
                 modifier = Modifier
-                    .padding(top = dimen_16)
+                    .padding(top = AeroTheme.dimens.dp16)
                     .constrainAs(
                         ref = statusTitle,
                         constrainBlock = {
@@ -243,8 +241,8 @@ private fun NavigateItem(number: String) {
     ConstraintLayout(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = dimen_16)
-            .padding(top = dimen_16),
+            .padding(horizontal = AeroTheme.dimens.dp16)
+            .padding(top = AeroTheme.dimens.dp16),
         content = {
             val (numberTitle, goThrough, chevron) = createRefs()
 

@@ -9,8 +9,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.nassdk.profile.R
 import com.nassdk.ui.theme.AeroTheme
-import com.nassdk.ui.theme.dimen_12
-import com.nassdk.ui.theme.dimen_16
 
 @Composable
 internal fun AppBar(modifier: Modifier) {
@@ -18,7 +16,8 @@ internal fun AppBar(modifier: Modifier) {
     TopAppBar(
         modifier = modifier,
         backgroundColor = AeroTheme.colors.secondaryBackground,
-        contentPadding = PaddingValues(horizontal = dimen_16, vertical = dimen_12),
+        contentPadding = PaddingValues(horizontal = AeroTheme.dimens.dp16,
+            vertical = AeroTheme.dimens.dp12),
         content = {
             Text(
                 text = stringResource(id = R.string.profile_header_title),

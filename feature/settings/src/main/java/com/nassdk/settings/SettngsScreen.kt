@@ -19,7 +19,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
 import com.nassdk.settings.domain.entity.SettingsBundle
 import com.nassdk.ui.theme.AeroTheme
-import com.nassdk.ui.theme.dimen_16
 
 @Composable
 fun SettingsScreen(
@@ -54,7 +53,7 @@ fun SettingsScreen(
                     style = AeroTheme.typegraphy.headerMedRoboto,
                     color = AeroTheme.colors.headerColor,
                     modifier = Modifier
-                        .padding(start = dimen_16)
+                        .padding(start = AeroTheme.dimens.dp16)
                         .align(alignment = Alignment.CenterVertically)
                 )
             }
@@ -63,7 +62,7 @@ fun SettingsScreen(
         Row(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
-                .padding(horizontal = dimen_16)
+                .padding(horizontal = AeroTheme.dimens.dp16)
                 .fillMaxWidth(),
 
             content = {

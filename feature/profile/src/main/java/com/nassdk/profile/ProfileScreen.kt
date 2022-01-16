@@ -29,8 +29,6 @@ import com.nassdk.common.extensions.navigate
 import com.nassdk.navigation.Screens
 import com.nassdk.profile.views.AppBar
 import com.nassdk.ui.theme.AeroTheme
-import com.nassdk.ui.theme.dimen_12
-import com.nassdk.ui.theme.dimen_16
 
 @Composable
 fun ProfileScreen(navController: NavHostController) {
@@ -94,7 +92,11 @@ fun ProfileScreen(navController: NavHostController) {
                 text = "Никола Тесла",
                 style = AeroTheme.typegraphy.headerMedRoboto,
                 modifier = Modifier
-                    .padding(start = dimen_16, end = dimen_16, top = dimen_12)
+                    .padding(
+                        start = AeroTheme.dimens.dp16,
+                        end = AeroTheme.dimens.dp16,
+                        top = AeroTheme.dimens.dp12
+                    )
                     .constrainAs(
                         ref = name,
                         constrainBlock = {
@@ -107,7 +109,9 @@ fun ProfileScreen(navController: NavHostController) {
 
             Column(
                 modifier = Modifier
-                    .padding(start = dimen_16, end = dimen_16, top = 40.dp)
+                    .padding(start = AeroTheme.dimens.dp16,
+                        end = AeroTheme.dimens.dp16,
+                        top = 40.dp)
                     .constrainAs(
                         ref = personalActions,
                         constrainBlock = {
@@ -119,10 +123,10 @@ fun ProfileScreen(navController: NavHostController) {
                 content = {
                     Button(
                         onClick = { /*TODO*/ },
-                        contentPadding = PaddingValues(all = dimen_16),
+                        contentPadding = PaddingValues(all = AeroTheme.dimens.dp16),
                         shape = RoundedCornerShape(
-                            topEnd = 16.dp,
-                            topStart = 16.dp
+                            topEnd = AeroTheme.dimens.dp16,
+                            topStart = AeroTheme.dimens.dp16
                         ),
                         colors = ButtonDefaults.buttonColors(
                             backgroundColor = AeroTheme.colors.secondaryBackground
@@ -139,7 +143,7 @@ fun ProfileScreen(navController: NavHostController) {
                                 style = AeroTheme.typegraphy.buttonMedRoboto,
                                 color = AeroTheme.colors.secondaryButton,
                                 modifier = Modifier
-                                    .padding(start = dimen_12)
+                                    .padding(start = AeroTheme.dimens.dp12)
                                     .weight(weight = 1f)
                             )
 
@@ -154,10 +158,10 @@ fun ProfileScreen(navController: NavHostController) {
 
                     Button(
                         onClick = { /*TODO*/ },
-                        contentPadding = PaddingValues(all = dimen_16),
+                        contentPadding = PaddingValues(all = AeroTheme.dimens.dp16),
                         shape = RoundedCornerShape(
-                            bottomEnd = 16.dp,
-                            bottomStart = 16.dp
+                            bottomEnd = AeroTheme.dimens.dp16,
+                            bottomStart = AeroTheme.dimens.dp16
                         ),
                         colors = ButtonDefaults.buttonColors(
                             backgroundColor = AeroTheme.colors.secondaryBackground
@@ -174,7 +178,7 @@ fun ProfileScreen(navController: NavHostController) {
                                 style = AeroTheme.typegraphy.buttonMedRoboto,
                                 color = AeroTheme.colors.secondaryButton,
                                 modifier = Modifier
-                                    .padding(start = dimen_12)
+                                    .padding(start = AeroTheme.dimens.dp12)
                                     .weight(weight = 1f)
                             )
 
@@ -192,7 +196,9 @@ fun ProfileScreen(navController: NavHostController) {
                     navController.navigate(target = Screens.Settings)
                 },
                 modifier = Modifier
-                    .padding(top = dimen_12, start = dimen_16, end = dimen_16)
+                    .padding(top = AeroTheme.dimens.dp12,
+                        start = AeroTheme.dimens.dp16,
+                        end = AeroTheme.dimens.dp16)
                     .constrainAs(
                         ref = settings,
                         constrainBlock = {
@@ -201,8 +207,8 @@ fun ProfileScreen(navController: NavHostController) {
                             end.linkTo(anchor = parent.end)
                         }
                     ),
-                contentPadding = PaddingValues(all = dimen_16),
-                shape = RoundedCornerShape(size = 16.dp),
+                contentPadding = PaddingValues(all = AeroTheme.dimens.dp16),
+                shape = RoundedCornerShape(size = AeroTheme.dimens.dp16),
                 colors = ButtonDefaults.buttonColors(
                     backgroundColor = AeroTheme.colors.secondaryBackground
                 ),
@@ -218,7 +224,7 @@ fun ProfileScreen(navController: NavHostController) {
                         style = AeroTheme.typegraphy.buttonMedRoboto,
                         color = AeroTheme.colors.secondaryButton,
                         modifier = Modifier
-                            .padding(start = dimen_12)
+                            .padding(start = AeroTheme.dimens.dp16)
                             .weight(weight = 1f)
                     )
 

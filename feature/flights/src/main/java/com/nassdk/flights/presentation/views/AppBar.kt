@@ -14,8 +14,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.nassdk.flights.R
 import com.nassdk.ui.theme.AeroTheme
-import com.nassdk.ui.theme.dimen_12
-import com.nassdk.ui.theme.dimen_16
 
 @Composable
 internal fun AppBar() {
@@ -25,7 +23,8 @@ internal fun AppBar() {
             .fillMaxWidth()
             .height(height = 56.dp),
         backgroundColor = AeroTheme.colors.secondaryBackground,
-        contentPadding = PaddingValues(horizontal = dimen_16, vertical = dimen_12),
+        contentPadding = PaddingValues(horizontal = AeroTheme.dimens.dp16,
+            vertical = AeroTheme.dimens.dp12),
         content = {
             Text(
                 text = stringResource(id = R.string.flights_header_title),

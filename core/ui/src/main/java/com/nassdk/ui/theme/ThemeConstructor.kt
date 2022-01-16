@@ -17,6 +17,7 @@ fun FlightAeroTheme(
     CompositionLocalProvider(
         LocalAeroColors provides colors,
         LocalAeroTypography provides typography,
+        LocalAeroDimens provides AeroDimens(),
         content = content
     )
 }

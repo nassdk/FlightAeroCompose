@@ -41,7 +41,7 @@ data class AeroTypography(
 
 val typography = AeroTypography(
     headerBoldRubik = TextStyle(
-        fontSize = text_24,
+        fontSize = 24.sp,
         fontFamily = familyRubik,
         fontWeight = FontWeight.Bold
     ),
@@ -51,22 +51,22 @@ val typography = AeroTypography(
         fontWeight = FontWeight.Medium
     ),
     headerMedRoboto = TextStyle(
-        fontSize = text_20,
+        fontSize = 20.sp,
         fontFamily = familyRoboto,
         fontWeight = FontWeight.Medium
     ),
     bodyMedRoboto = TextStyle(
-        fontSize = text_14,
+        fontSize = 14.sp,
         fontFamily = familyRoboto,
         fontWeight = FontWeight.Medium
     ),
     subMedRoboto = TextStyle(
-        fontSize = text_12,
+        fontSize = 12.sp,
         fontFamily = familyRoboto,
         fontWeight = FontWeight.Medium
     ),
     buttonMedRoboto = TextStyle(
-        fontSize = text_14,
+        fontSize = 14.sp,
         fontFamily = familyRoboto,
         fontWeight = FontWeight.Medium
     )

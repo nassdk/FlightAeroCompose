@@ -15,7 +15,7 @@ data class AeroColors(
     val secondaryBackground: Color,
     val tintPrimary: Color,
     val tintSecondary: Color,
-    val dividerColor: Color
+    val dividerColor: Color,
 )
 
 object AeroTheme {
@@ -26,6 +26,10 @@ object AeroTheme {
     val typegraphy: AeroTypography
         @Composable
         get() = LocalAeroTypography.current
+
+    val dimens: AeroDimens
+        @Composable
+        get() = LocalAeroDimens.current
 }
 
 val LocalAeroColors = staticCompositionLocalOf<AeroColors> {
@@ -33,5 +37,9 @@ val LocalAeroColors = staticCompositionLocalOf<AeroColors> {
 }
 
 val LocalAeroTypography = staticCompositionLocalOf<AeroTypography> {
-    error("No colors provided")
+    error("No typography provided")
+}
+
+val LocalAeroDimens = staticCompositionLocalOf<AeroDimens> {
+    error("No dimens provided")
 }
