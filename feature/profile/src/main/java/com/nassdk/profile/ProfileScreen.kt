@@ -24,13 +24,16 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
+import androidx.navigation.NavHostController
+import com.nassdk.common.extensions.navigate
+import com.nassdk.navigation.Screens
 import com.nassdk.profile.views.AppBar
 import com.nassdk.ui.theme.AeroTheme
 import com.nassdk.ui.theme.dimen_12
 import com.nassdk.ui.theme.dimen_16
 
 @Composable
-fun ProfileScreen() {
+fun ProfileScreen(navController: NavHostController) {
 
     ConstraintLayout(
         modifier = Modifier
@@ -185,7 +188,9 @@ fun ProfileScreen() {
             )
 
             Button(
-                onClick = { /*TODO*/ },
+                onClick = {
+                    navController.navigate(target = Screens.Settings)
+                },
                 modifier = Modifier
                     .padding(top = dimen_12, start = dimen_16, end = dimen_16)
                     .constrainAs(

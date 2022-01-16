@@ -2,7 +2,6 @@ package com.nassdk.flow.presentation
 
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
@@ -22,15 +21,17 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.nassdk.flow.domain.TabItem
 import com.nassdk.navigation.Screens
 import com.nassdk.ui.theme.AeroTheme
+import com.nassdk.ui.theme.Blue_4A536B
 import com.nassdk.ui.theme.White
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
-fun FlowScreen(flowGraphBuilder: NavGraphBuilder.() -> Unit) {
-
+fun FlowScreen(
+    flowGraphBuilder: NavGraphBuilder.() -> Unit,
+    isDarkMode: Boolean,
+) {
     val navController = rememberAnimatedNavController()
     val navItems = arrayOf(TabItem.FLIGHTS, TabItem.PROFILE)
-    val isDarkMode = isSystemInDarkTheme()
 
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
@@ -40,7 +41,7 @@ fun FlowScreen(flowGraphBuilder: NavGraphBuilder.() -> Unit) {
     SideEffect(
         effect = {
             systemUiController.setSystemBarsColor(
-                color = if (isDarkMode) White else White
+                color = if (isDarkMode) Blue_4A536B else White
             )
         }
     )

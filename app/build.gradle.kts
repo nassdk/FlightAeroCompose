@@ -59,6 +59,7 @@ dependencies {
         implementation(dependencyNotation = feature.flow)
         implementation(dependencyNotation = feature.flights)
         implementation(dependencyNotation = feature.profile)
+        implementation(dependencyNotation = feature.settings)
     }
 
     libs.run {

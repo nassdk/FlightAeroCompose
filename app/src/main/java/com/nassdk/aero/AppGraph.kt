@@ -12,12 +12,16 @@ import com.nassdk.flow.presentation.FlowScreen
 import com.nassdk.navigation.Screens
 import com.nassdk.navigation.TransitionType
 import com.nassdk.profile.ProfileScreen
+import com.nassdk.settings.SettingsScreen
+import com.nassdk.settings.domain.entity.SettingsBundle
 import com.nassdk.splash.presentation.SplashScreen
 
 @ExperimentalAnimationApi
 @Composable
-fun MainGraph() {
-
+fun MainGraph(
+    settingsState: SettingsBundle,
+    onSettingsChanged: (SettingsBundle) -> Unit,
+) {
     val navController = rememberAnimatedNavController()
 
     AnimatedNavHost(
@@ -39,10 +43,22 @@ fun MainGraph() {
             )
 
             aeroComposable(
+                target = Screens.Settings,
+                content = {
+                    SettingsScreen(
+                        navController = navController,
+                        settingsState = settingsState,
+                        onSettingsChanged = onSettingsChanged
+                    )
+                }
+            )
+
+            aeroComposable(
                 target = Screens.Flow,
                 transitionType = TransitionType.NONE,
                 content = {
                     FlowScreen(
+                        isDarkMode = settingsState.isDarkMode,
                         flowGraphBuilder = {
                             aeroComposable(
                                 target = Screens.Flights,
@@ -60,7 +76,7 @@ fun MainGraph() {
                             aeroComposable(
                                 target = Screens.Profile,
                                 transitionType = TransitionType.NONE,
-                                content = { ProfileScreen() }
+                                content = { ProfileScreen(navController = navController) }
                             )
                         }
                     )
