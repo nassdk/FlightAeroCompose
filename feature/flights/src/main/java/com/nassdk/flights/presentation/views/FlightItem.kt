@@ -20,17 +20,24 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.nassdk.flights.R
+import com.nassdk.flights.domain.entity.FlightEntity
 import com.nassdk.flights.presentation.ui.FlightsListModel
+import com.nassdk.flights.presentation.ui.FlightsListModel.Flight.Companion.map2Entity
 import com.nassdk.ui.helpers.DashedLine
 import com.nassdk.ui.theme.AeroTheme
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-internal fun FlightItem(entity: FlightsListModel.Flight) {
+internal fun FlightItem(
+    model: FlightsListModel.Flight,
+    onFlightSelect: (FlightEntity) -> Unit,
+) {
 
     Card(
-        onClick = { /*TODO*/ },
-        enabled = false,
+        onClick = {
+            onFlightSelect.invoke(model.map2Entity())
+                  },
+        enabled = true,
         shape = RoundedCornerShape(size = 20.dp),
         elevation = AeroTheme.dimens.dp4,
         backgroundColor = AeroTheme.colors.secondaryBackground,
@@ -46,7 +53,7 @@ internal fun FlightItem(entity: FlightsListModel.Flight) {
 
                     TrajectoryView()
 
-                    FlightInfo(entity = entity)
+                    FlightInfo(entity = model)
 
                     Divider(
                         modifier = Modifier
@@ -55,7 +62,7 @@ internal fun FlightItem(entity: FlightsListModel.Flight) {
                             .background(color = AeroTheme.colors.dividerColor)
                     )
 
-                    NavigateItem(number = entity.number)
+                    NavigateItem(number = model.number)
                 }
             )
         }

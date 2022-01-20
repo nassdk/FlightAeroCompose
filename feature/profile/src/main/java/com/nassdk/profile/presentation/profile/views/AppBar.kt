@@ -1,4 +1,4 @@
-package com.nassdk.profile.views
+package com.nassdk.profile.presentation.profile.views
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.material.Text

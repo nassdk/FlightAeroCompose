@@ -10,10 +10,15 @@ import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.nassdk.common.helpers.ItemUi
+import com.nassdk.flights.domain.entity.FlightEntity
 import com.nassdk.flights.presentation.ui.FlightsListModel
 
 @Composable
-internal fun ContentView(content: List<ItemUi>, loadNextPage: () -> Unit) {
+internal fun ContentView(
+    content: List<ItemUi>,
+    loadNextPage: () -> Unit,
+    onFlightSelect: (FlightEntity) -> Unit,
+) {
 
     LazyColumn(
         contentPadding = PaddingValues(vertical = 12.dp, horizontal = 16.dp),
@@ -31,8 +36,11 @@ internal fun ContentView(content: List<ItemUi>, loadNextPage: () -> Unit) {
                 }
 
                 when (item) {
-                    is FlightsListModel.Flight -> FlightItem(entity = item)
                     is FlightsListModel.Loading -> LoadingItem()
+                    is FlightsListModel.Flight -> FlightItem(
+                        model = item,
+                        onFlightSelect = onFlightSelect
+                    )
                 }
             }
         }

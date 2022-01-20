@@ -1,5 +1,6 @@
 plugins {
     id("com.android.application")
+    id("kotlin-parcelize")
     kotlin(module = "android")
     kotlin(module = "kapt")
 }
@@ -59,7 +60,7 @@ dependencies {
         implementation(dependencyNotation = feature.flow)
         implementation(dependencyNotation = feature.flights)
         implementation(dependencyNotation = feature.profile)
-        implementation(dependencyNotation = feature.settings)
+        implementation(dependencyNotation = feature.flightdetails)
     }
 
     libs.run {

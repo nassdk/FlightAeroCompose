@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="flightdetails_number">№%s</string>
+    <string name="flightdetails_status_name_in_flight">В полете</string>
+    <string name="flightdetails_status_name_scheduled">Перенесен</string>
+    <string name="flightdetails_status_name_landed">Приземлился</string>
+    <string name="flightdetails_status_name_canceled">Отменен</string>
+    <string name="flightdetails_refresh_title">Обновить</string>
+    <string name="flightdetails_status_title">Статус</string>
+    <string name="flightdetails_company_title">Авиакомпания</string>
+    <string name="flightdetails_location_title">Местоположение в реальном времени</string>
+    <string name="flightdetails_latitude_title">Широта</string>
+    <string name="flightdetails_longtitude_title">Долгота</string>
+    <string name="flightdetails_plane_info">Подробно о самолете</string>
+    <string name="flightdetails_full_plane_name_title">Полное название</string>
+    <string name="flightdetails_model_code_title">Код модели</string>
+    <string name="flightdetails_registration_model_title">Регистрационный номер</string>
+    <string name="flightdetails_age_title">Возраст</string>
+    <string name="flightdetails_first_plane_date">Первый полет</string>
+</resources>

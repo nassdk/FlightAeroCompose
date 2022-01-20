@@ -10,6 +10,7 @@ data class AeroDimens(
     val dp8: Dp = 8.dp,
     val dp12: Dp = 12.dp,
     val dp16: Dp = 16.dp,
+    val dp24: Dp = 24.dp,
     val sp4: TextUnit = 4.sp,
     val sp8: TextUnit = 8.sp,
     val sp12: TextUnit = 12.sp,

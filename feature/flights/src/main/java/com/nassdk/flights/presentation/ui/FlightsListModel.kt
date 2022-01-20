@@ -15,6 +15,11 @@ sealed class FlightsListModel : ItemUi {
         val arrivalTime: String,
         val departureTimezone: String,
         val departureTime: String,
+        val arrDay: String,
+        val depDay: String,
+        val arrTime: String,
+        val depTime: String,
+        val flightTime: String
     ) : FlightsListModel() {
 
         companion object {
@@ -26,7 +31,28 @@ sealed class FlightsListModel : ItemUi {
                     arrivalTimezone = arrivalTimezone,
                     arrivalTime = arrivalTime,
                     departureTimezone = departureTimezone,
-                    departureTime = departureTime
+                    departureTime = departureTime,
+                    arrDay = arrDay,
+                    arrTime = arrTime,
+                    depDay = depDay,
+                    depTime = depTime,
+                    flightTime = flightTime
+                )
+            }
+
+            fun Flight.map2Entity(): FlightEntity {
+                return FlightEntity(
+                    status = status,
+                    number = number,
+                    arrivalTimezone = arrivalTimezone,
+                    arrivalTime = arrivalTime,
+                    departureTimezone = departureTimezone,
+                    departureTime = departureTime,
+                    arrDay = arrDay,
+                    arrTime = arrTime,
+                    depDay = depDay,
+                    depTime = depTime,
+                    flightTime = flightTime
                 )
             }
         }

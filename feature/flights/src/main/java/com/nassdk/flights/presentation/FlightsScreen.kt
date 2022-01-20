@@ -7,16 +7,22 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.navigation.NavController
 import com.nassdk.common.base.BaseViewModel
+import com.nassdk.common.extensions.navigate
 import com.nassdk.flights.presentation.mvi.FlightsViewEvent
 import com.nassdk.flights.presentation.mvi.FlightsViewState
 import com.nassdk.flights.presentation.views.AppBar
 import com.nassdk.flights.presentation.views.ContentView
 import com.nassdk.flights.presentation.views.LoadingScreen
+import com.nassdk.navigation.Screens
 import com.nassdk.ui.theme.AeroTheme
 
 @Composable
-fun FlightsScreen(viewModel: BaseViewModel<FlightsViewState, FlightsViewEvent>) {
+fun FlightsScreen(
+    viewModel: BaseViewModel<FlightsViewState, FlightsViewEvent>,
+    navController: NavController,
+) {
 
     val screenState by viewModel.viewState.collectAsState()
 
@@ -37,9 +43,18 @@ fun FlightsScreen(viewModel: BaseViewModel<FlightsViewState, FlightsViewEvent>) 
                     content = screenState.content,
                     loadNextPage = {
                         viewModel.perform(viewEvent = FlightsViewEvent.LoadNextPage)
+                    },
+                    onFlightSelect = { entity ->
+                        navController.currentBackStackEntry?.arguments?.putParcelable(
+                            ARG_FLIGHT_ENTITY,
+                            entity
+                        )
+                        navController.navigate(target = Screens.FlightDetails)
                     }
                 )
             }
         }
     )
 }
+
+const val ARG_FLIGHT_ENTITY = "ARG_FLIGHT_ENTITY"

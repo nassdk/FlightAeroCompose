@@ -1,9 +1,5 @@
-package com.nassdk.flights.domain.entity
+package com.nassdk.flightdetails.domain.entity
 
-import android.os.Parcelable
-import kotlinx.parcelize.Parcelize
-
-@Parcelize
 data class FlightEntity(
     val status: FlightStatus,
     val number: String,
@@ -16,4 +12,4 @@ data class FlightEntity(
     val arrTime: String,
     val depTime: String,
     val flightTime: String
-) : Parcelable
+)

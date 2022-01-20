@@ -1,38 +1,36 @@
-package com.nassdk.flights.domain.entity
+package com.nassdk.flightdetails.domain.entity
 
-import android.os.Parcelable
 import androidx.annotation.ColorRes
 import androidx.annotation.StringRes
 import androidx.compose.ui.graphics.Color
-import com.nassdk.flights.R
-import kotlinx.parcelize.Parcelize
+import com.nassdk.flightdetails.R
 
-@Parcelize
+
 enum class FlightStatus(
     @StringRes val value: Int,
     @ColorRes val tint: Color,
     val code: String,
-) : Parcelable {
+) {
     InFlight(
-        value = R.string.flights_status_name_in_flight,
+        value = R.string.flightdetails_status_name_in_flight,
         tint = Color(0xFF0057FF),
         code = "active"
     ),
 
     Canceled(
-        value = R.string.flights_status_name_canceled,
+        value = R.string.flightdetails_status_name_canceled,
         tint = Color(0xFFC7BF00),
         code = "cancelled"
     ),
 
     Scheduled(
-        value = R.string.flights_status_name_scheduled,
+        value = R.string.flightdetails_status_name_scheduled,
         tint = Color(0xFFFF7A00),
         code = "scheduled"
     ),
 
     Landed(
-        value = R.string.flights_status_name_landed,
+        value = R.string.flightdetails_status_name_landed,
         tint = Color(0xFFFF7A00),
         code = "landed"
     );

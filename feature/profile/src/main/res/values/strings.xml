@@ -4,4 +4,7 @@
     <string name="profile_my_info_btn_title">Мои даннные</string>
     <string name="profile_favorites_btn_title">Избранные рейсы</string>
     <string name="profile_settings_btn_title">Настройки</string>
+
+    <string name="settings_title">Настройки</string>
+    <string name="settings_turn_dark_theme_title">Включить темную тему</string>
 </resources>

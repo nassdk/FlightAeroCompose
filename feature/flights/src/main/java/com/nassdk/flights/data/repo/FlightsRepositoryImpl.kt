@@ -31,7 +31,12 @@ internal class FlightsRepositoryImpl @Inject constructor(
                     arrivalTime = "21.12.21",
                     arrivalTimezone = "Moscow",
                     departureTime = "21.12.21",
-                    departureTimezone = "S-P"
+                    departureTimezone = "S-P",
+                    arrDay = "12 сентрября",
+                    arrTime = "12:15",
+                    depTime = "15:15",
+                    depDay = "13 сентрября",
+                    flightTime = "1ч.30мин"
                 ),
                 FlightEntity(
                     status = FlightStatus.Canceled,
@@ -39,7 +44,12 @@ internal class FlightsRepositoryImpl @Inject constructor(
                     arrivalTime = "21.12.21",
                     arrivalTimezone = "Moscow",
                     departureTime = "21.12.21",
-                    departureTimezone = "S-P"
+                    departureTimezone = "S-P",
+                    arrDay = "12 сентрября",
+                    arrTime = "12:15",
+                    depTime = "15:15",
+                    depDay = "13 сентрября",
+                    flightTime = "1ч.30мин"
                 ),
                 FlightEntity(
                     status = FlightStatus.Canceled,
@@ -47,7 +57,12 @@ internal class FlightsRepositoryImpl @Inject constructor(
                     arrivalTime = "21.12.21",
                     arrivalTimezone = "Moscow",
                     departureTime = "21.12.21",
-                    departureTimezone = "S-P"
+                    departureTimezone = "S-P",
+                    arrDay = "12 сентрября",
+                    arrTime = "12:15",
+                    depTime = "15:15",
+                    depDay = "13 сентрября",
+                    flightTime = "1ч.30мин"
                 ),
                 FlightEntity(
                     status = FlightStatus.Canceled,
@@ -55,7 +70,12 @@ internal class FlightsRepositoryImpl @Inject constructor(
                     arrivalTime = "21.12.21",
                     arrivalTimezone = "Moscow",
                     departureTime = "21.12.21",
-                    departureTimezone = "S-P"
+                    departureTimezone = "S-P",
+                    arrDay = "12 сентрября",
+                    arrTime = "12:15",
+                    depTime = "15:15",
+                    depDay = "13 сентрября",
+                    flightTime = "1ч.30мин"
                 ),
                 FlightEntity(
                     status = FlightStatus.Canceled,
@@ -63,7 +83,12 @@ internal class FlightsRepositoryImpl @Inject constructor(
                     arrivalTime = "21.12.21",
                     arrivalTimezone = "Moscow",
                     departureTime = "21.12.21",
-                    departureTimezone = "S-P"
+                    departureTimezone = "S-P",
+                    arrDay = "12 сентрября",
+                    arrTime = "12:15",
+                    depTime = "15:15",
+                    depDay = "13 сентрября",
+                    flightTime = "1ч.30мин"
                 ),
                 FlightEntity(
                     status = FlightStatus.Canceled,
@@ -71,7 +96,12 @@ internal class FlightsRepositoryImpl @Inject constructor(
                     arrivalTime = "21.12.21",
                     arrivalTimezone = "Moscow",
                     departureTime = "21.12.21",
-                    departureTimezone = "S-P"
+                    departureTimezone = "S-P",
+                    arrDay = "12 сентрября",
+                    arrTime = "12:15",
+                    depTime = "15:15",
+                    depDay = "13 сентрября",
+                    flightTime = "1ч.30мин"
                 ),
                 FlightEntity(
                     status = FlightStatus.Canceled,
@@ -79,7 +109,12 @@ internal class FlightsRepositoryImpl @Inject constructor(
                     arrivalTime = "21.12.21",
                     arrivalTimezone = "Moscow",
                     departureTime = "21.12.21",
-                    departureTimezone = "S-P"
+                    departureTimezone = "S-P",
+                    arrDay = "12 сентрября",
+                    arrTime = "12:15",
+                    depTime = "15:15",
+                    depDay = "13 сентрября",
+                    flightTime = "1ч.30мин"
                 ),
                 FlightEntity(
                     status = FlightStatus.Canceled,
@@ -87,23 +122,12 @@ internal class FlightsRepositoryImpl @Inject constructor(
                     arrivalTime = "21.12.21",
                     arrivalTimezone = "Moscow",
                     departureTime = "21.12.21",
-                    departureTimezone = "S-P"
-                ),
-                FlightEntity(
-                    status = FlightStatus.Canceled,
-                    number = "2321",
-                    arrivalTime = "21.12.21",
-                    arrivalTimezone = "Moscow",
-                    departureTime = "21.12.21",
-                    departureTimezone = "S-P"
-                ),
-                FlightEntity(
-                    status = FlightStatus.Canceled,
-                    number = "21321321312",
-                    arrivalTime = "21.12.21",
-                    arrivalTimezone = "Moscowwwwwww",
-                    departureTime = "21.12.21",
-                    departureTimezone = "S-Pppppp"
+                    departureTimezone = "S-P",
+                    arrDay = "12 сентрября",
+                    arrTime = "12:15",
+                    depTime = "15:15",
+                    depDay = "13 сентрября",
+                    flightTime = "1ч.30мин"
                 )
             )
         )

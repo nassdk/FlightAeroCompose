@@ -1,4 +1,4 @@
-package com.nassdk.profile
+package com.nassdk.profile.presentation.profile
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -27,7 +27,8 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.navigation.NavHostController
 import com.nassdk.common.extensions.navigate
 import com.nassdk.navigation.Screens
-import com.nassdk.profile.views.AppBar
+import com.nassdk.profile.R
+import com.nassdk.profile.presentation.profile.views.AppBar
 import com.nassdk.ui.theme.AeroTheme
 
 @Composable
