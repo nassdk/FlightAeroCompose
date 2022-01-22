@@ -30,6 +30,7 @@ internal fun Location() {
         onClick = {},
         shape = RoundedCornerShape(size = 20.dp),
         elevation = 4.dp,
+        enabled = false,
         backgroundColor = AeroTheme.colors.secondaryBackground,
         modifier = Modifier
             .padding(

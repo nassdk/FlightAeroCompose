@@ -36,8 +36,7 @@ internal fun FlightItem(
     Card(
         onClick = {
             onFlightSelect.invoke(model.map2Entity())
-                  },
-        enabled = true,
+        },
         shape = RoundedCornerShape(size = 20.dp),
         elevation = AeroTheme.dimens.dp4,
         backgroundColor = AeroTheme.colors.secondaryBackground,

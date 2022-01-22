@@ -1,4 +1,4 @@
-package com.nassdk.flightdetails.presentation.views
+Cpackage com.nassdk.flightdetails.presentation.views
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
@@ -32,6 +32,7 @@ internal fun FlightInfo(flight: FlightEntity) {
 
     Card(
         onClick = {},
+        enabled = false,
         shape = RoundedCornerShape(size = 20.dp),
         elevation = 4.dp,
         backgroundColor = AeroTheme.colors.secondaryBackground,

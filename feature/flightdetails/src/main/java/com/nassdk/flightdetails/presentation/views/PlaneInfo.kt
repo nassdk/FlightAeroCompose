@@ -28,6 +28,7 @@ internal fun PlaneInfo() {
 
     Card(
         onClick = {},
+        enabled = false,
         shape = RoundedCornerShape(size = 20.dp),
         elevation = 4.dp,
         backgroundColor = AeroTheme.colors.secondaryBackground,
