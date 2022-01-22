@@ -21,6 +21,7 @@ class AndroidFeatureModuleConfigurator : ProjectConfigurator {
                 kotlinOptionsConfigurator(project = project)
                 packagingOptionsConfigurator()
                 composeOptionsConfigurator()
+                buildFeaturesConfigurator()
             }
         } else {
             project.logger.error("Failed to configure android settings for ${project.name} module")
@@ -60,6 +61,10 @@ class AndroidFeatureModuleConfigurator : ProjectConfigurator {
         project.tasks.withType<KotlinCompile> {
             kotlinOptions.jvmTarget = JavaVersion.VERSION_1_8.toString()
         }
+    }
+
+    private fun BaseExtension.buildFeaturesConfigurator() {
+        buildFeatures.compose = true
     }
 
     private fun BaseExtension.composeOptionsConfigurator() {
