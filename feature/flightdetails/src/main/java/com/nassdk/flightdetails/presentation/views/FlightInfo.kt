@@ -1,4 +1,4 @@
-Cpackage com.nassdk.flightdetails.presentation.views
+package com.nassdk.flightdetails.presentation.views
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
