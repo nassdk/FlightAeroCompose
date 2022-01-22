@@ -16,6 +16,8 @@ buildscript {
     }
 }
 
-task("clean") {
-    delete(rootProject.buildDir)
+apply(plugin = "com.nassdk.flightaero.module-configurator")
+
+subprojects {
+    apply(plugin = "com.nassdk.flightaero.module-configurator")
 }
