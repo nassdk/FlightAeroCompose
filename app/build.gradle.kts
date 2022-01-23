@@ -8,12 +8,6 @@ dependencies {
 
     projects.run {
         implementation(dependencyNotation = core.common)
-
-        implementation(dependencyNotation = feature.splash)
-        implementation(dependencyNotation = feature.flow)
-        implementation(dependencyNotation = feature.flights)
-        implementation(dependencyNotation = feature.profile)
-        implementation(dependencyNotation = feature.flightdetails)
     }
 
     libs.run {
@@ -22,4 +16,16 @@ dependencies {
 
         kapt(dependencyNotation = daggerCompiler)
     }
+
+    File("$rootDir/feature").listFiles()
+        ?.filter { it.isDirectory }
+        ?.forEach { module ->
+            val moduleName = module.name
+            val gradleFile = File("${module.absolutePath}/build.gradle")
+            val gradleFileKts = File("${module.absolutePath}/build.gradle.kts")
+            // Если в директории есть файл build.gradle, то это модуль
+            if (gradleFile.exists() || gradleFileKts.exists()) {
+                implementation(project(":feature:$moduleName"))
+            }
+        }
 }
