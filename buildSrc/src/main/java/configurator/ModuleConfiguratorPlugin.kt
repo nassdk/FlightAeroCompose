@@ -3,7 +3,7 @@ package configurator
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
-class ModuleConfiguratorPlugin : Plugin<Project> {
+internal class ModuleConfiguratorPlugin : Plugin<Project> {
 
     private val featureModuleConfigurator = AndroidFeatureModuleConfigurator()
     private val applicationModuleConfigurator = ApplicationModuleConfigurator()

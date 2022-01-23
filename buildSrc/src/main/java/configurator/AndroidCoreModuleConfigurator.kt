@@ -6,7 +6,7 @@ import org.gradle.api.Project
 import org.gradle.kotlin.dsl.withType
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-class AndroidCoreModuleConfigurator : ProjectConfigurator {
+internal class AndroidCoreModuleConfigurator : ProjectConfigurator {
 
     override fun configure(project: Project) {
         configurePlugins(project = project)

@@ -4,7 +4,7 @@ import org.gradle.api.JavaVersion
 import org.gradle.api.Project
 import org.gradle.api.plugins.JavaPluginExtension
 
-class JavaCoreModuleConfigurator : ProjectConfigurator {
+internal class JavaCoreModuleConfigurator : ProjectConfigurator {
 
     override fun configure(project: Project) {
         configurePlugins(project = project)
