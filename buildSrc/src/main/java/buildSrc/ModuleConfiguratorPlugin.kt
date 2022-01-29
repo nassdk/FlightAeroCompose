@@ -1,5 +1,11 @@
-package configurator
+package buildSrc
 
+import buildSrc.configurators.AndroidCoreModuleConfigurator
+import buildSrc.configurators.AndroidFeatureModuleConfigurator
+import buildSrc.configurators.ApplicationModuleConfigurator
+import buildSrc.configurators.DependenciesConfigurator
+import buildSrc.configurators.JavaCoreModuleConfigurator
+import buildSrc.configurators.RootModuleConfigurator
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
@@ -10,6 +16,9 @@ internal class ModuleConfiguratorPlugin : Plugin<Project> {
     private val coreAndroidModuleConfigurator = AndroidCoreModuleConfigurator()
     private val coreJavaModuleConfigurator = JavaCoreModuleConfigurator()
     private val rootModuleConfigurator = RootModuleConfigurator()
+    private val commonModuleConfigurators = arrayOf(
+        DependenciesConfigurator()
+    )
 
     override fun apply(target: Project) {
         target.logger.debug("Configuring ${target.name} module")
@@ -20,6 +29,13 @@ internal class ModuleConfiguratorPlugin : Plugin<Project> {
             target.name == APPLICATION_PROJECT -> configureApplicationModule(project = target)
             target.name == ROOT_PROJECT -> configureRootAndroidModule(project = target)
             else -> configureFeatureModule(project = target)
+        }
+        configureCommonSettings(project = target)
+    }
+
+    private fun configureCommonSettings(project: Project) {
+        commonModuleConfigurators.forEach { configurator ->
+            configurator.configure(project = project)
         }
     }
 

@@ -6,7 +6,7 @@ gradlePlugin {
     plugins {
         register("com.nassdk.flightaero.module-configurator") {
             id = "com.nassdk.flightaero.module-configurator"
-            implementationClass = "configurator.ModuleConfiguratorPlugin"
+            implementationClass = "buildSrc.ModuleConfiguratorPlugin"
         }
     }
 }
@@ -17,6 +17,6 @@ repositories {
 }
 
 dependencies {
-    implementation("com.android.tools.build:gradle:7.0.4")
-    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.31")
+    implementation(dependencyNotation = "com.android.tools.build:gradle:7.0.4")
+    implementation(dependencyNotation = "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.31")
 }

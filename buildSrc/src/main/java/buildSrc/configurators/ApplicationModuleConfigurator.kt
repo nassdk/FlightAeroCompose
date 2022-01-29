@@ -1,5 +1,8 @@
-package configurator
+package buildSrc.configurators
 
+import buildSrc.ProjectConfigurator
+import buildSrc.configurators.dependencies.Config
+import buildSrc.configurators.dependencies.Plugins
 import com.android.build.gradle.AppExtension
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
@@ -15,8 +18,8 @@ internal class ApplicationModuleConfigurator : ProjectConfigurator {
         val androidExtension = project.extensions.getByName("android")
         if (androidExtension is AppExtension) {
             androidExtension.apply {
-                compileSdkVersion(31)
-                buildToolsVersion("30.0.2")
+                compileSdkVersion(apiLevel = Config.compileSdkVersion)
+                buildToolsVersion(version = Config.buildToolsVersion)
                 defaultConfigConfiguration()
                 buildTypesConfiguration()
                 compileOptionsConfigurator()
@@ -30,11 +33,11 @@ internal class ApplicationModuleConfigurator : ProjectConfigurator {
     private fun configurePlugins(project: Project) {
 
         with(project.plugins) {
-            apply("com.android.application")
-            apply("kotlin-android")
-            apply("kotlin-parcelize")
-            apply("kotlinx-serialization")
-            apply("kotlin-kapt")
+            apply(Plugins.application)
+            apply(Plugins.ktAndroid)
+            apply(Plugins.parcelize)
+            apply(Plugins.serialization)
+            apply(Plugins.kapt)
         }
     }
 

@@ -1,5 +1,8 @@
-package configurator
+package buildSrc.configurators
 
+import buildSrc.ProjectConfigurator
+import buildSrc.configurators.dependencies.Config
+import buildSrc.configurators.dependencies.Plugins
 import com.android.build.gradle.BaseExtension
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
@@ -14,9 +17,9 @@ internal class AndroidFeatureModuleConfigurator : ProjectConfigurator {
         val androidExtension = project.extensions.getByName("android")
         if (androidExtension is BaseExtension) {
             androidExtension.apply {
-                compileSdkVersion(31)
-                buildToolsVersion("30.0.2")
-                defaultConfigConfiguration(project = project)
+                compileSdkVersion(apiLevel = Config.compileSdkVersion)
+                buildToolsVersion(version = Config.buildToolsVersion)
+                defaultConfigConfiguration()
                 compileOptionsConfigurator()
                 kotlinOptionsConfigurator(project = project)
                 packagingOptionsConfigurator()
@@ -31,19 +34,19 @@ internal class AndroidFeatureModuleConfigurator : ProjectConfigurator {
     private fun configurePlugins(project: Project) {
 
         with(project.plugins) {
-            apply("com.android.library")
-            apply("kotlin-android")
-            apply("kotlin-parcelize")
-            apply("kotlin-kapt")
+            apply(Plugins.android)
+            apply(Plugins.ktAndroid)
+            apply(Plugins.parcelize)
+            apply(Plugins.kapt)
         }
     }
 
-    private fun BaseExtension.defaultConfigConfiguration(project: Project) {
+    private fun BaseExtension.defaultConfigConfiguration() {
         defaultConfig {
-            minSdk = 23
-            targetSdk = 31
-            versionName = "1.0"
-            versionCode = 1
+            minSdk = Config.minSdkVersion
+            targetSdk = Config.targetSdkVersion
+            versionName = Config.versionName
+            versionCode = Config.versionCode
 
             testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
             consumerProguardFiles("consumer-rules.pro")

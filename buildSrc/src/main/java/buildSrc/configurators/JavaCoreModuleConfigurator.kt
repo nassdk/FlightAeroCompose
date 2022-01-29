@@ -1,5 +1,7 @@
-package configurator
+package buildSrc.configurators
 
+import buildSrc.ProjectConfigurator
+import buildSrc.configurators.dependencies.Plugins
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
 import org.gradle.api.plugins.JavaPluginExtension
@@ -21,9 +23,9 @@ internal class JavaCoreModuleConfigurator : ProjectConfigurator {
     private fun configurePlugins(project: Project) {
 
         with(project.plugins) {
-            apply("java-library")
-            apply("kotlin")
-            apply("kotlin-kapt")
+            apply(Plugins.java)
+            apply(Plugins.kotlin)
+            apply(Plugins.kapt)
         }
     }
 }

@@ -1,5 +1,8 @@
-package configurator
+package buildSrc.configurators
 
+import buildSrc.ProjectConfigurator
+import buildSrc.configurators.dependencies.Config
+import buildSrc.configurators.dependencies.Plugins
 import com.android.build.gradle.BaseExtension
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
@@ -14,8 +17,8 @@ internal class AndroidCoreModuleConfigurator : ProjectConfigurator {
         val androidExtension = project.extensions.getByName("android")
         if (androidExtension is BaseExtension) {
             androidExtension.apply {
-                compileSdkVersion(31)
-                defaultConfigConfiguration(project = project)
+                compileSdkVersion(apiLevel = Config.compileSdkVersion)
+                defaultConfigConfiguration()
                 compileOptionsConfigurator()
                 kotlinOptionsConfigurator(project = project)
                 packagingOptionsConfigurator()
@@ -29,18 +32,18 @@ internal class AndroidCoreModuleConfigurator : ProjectConfigurator {
     private fun configurePlugins(project: Project) {
 
         with(project.plugins) {
-            apply("com.android.library")
-            apply("kotlin-android")
-            apply("kotlin-kapt")
+            apply(Plugins.android)
+            apply(Plugins.ktAndroid)
+            apply(Plugins.kapt)
         }
     }
 
-    private fun BaseExtension.defaultConfigConfiguration(project: Project) {
+    private fun BaseExtension.defaultConfigConfiguration() {
         defaultConfig {
-            minSdk = 23
-            targetSdk = 31
-            versionName = "1.0"
-            versionCode = 1
+            minSdk = Config.minSdkVersion
+            targetSdk = Config.targetSdkVersion
+            versionName = Config.versionName
+            versionCode = Config.versionCode
 
             testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
             vectorDrawables.useSupportLibrary = true
@@ -54,7 +57,7 @@ internal class AndroidCoreModuleConfigurator : ProjectConfigurator {
         }
     }
 
-    private fun BaseExtension.kotlinOptionsConfigurator(project: Project) {
+    private fun kotlinOptionsConfigurator(project: Project) {
         project.tasks.withType<KotlinCompile> {
             kotlinOptions.jvmTarget = JavaVersion.VERSION_1_8.toString()
         }

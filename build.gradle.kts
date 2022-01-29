@@ -6,13 +6,9 @@ buildscript {
     }
 
     dependencies {
-        val libs = project.extensions
-            .getByType<VersionCatalogsExtension>()
-            .named("libs") as org.gradle.accessors.dm.LibrariesForLibs
-
-        classpath(dependencyNotation = libs.plugin.gradle)
-        classpath(dependencyNotation = libs.plugin.kotlin)
-        classpath(dependencyNotation = libs.plugin.serialization)
+        classpath(dependencyNotation = "com.android.tools.build:gradle:7.0.4")
+        classpath(dependencyNotation = "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.31")
+        classpath(dependencyNotation = "org.jetbrains.kotlin:kotlin-serialization:1.5.31")
     }
 }
 

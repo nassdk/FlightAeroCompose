@@ -1,5 +1,5 @@
+import buildSrc.configurators.dependencies.Deps
+
 dependencies {
-    implementation(dependencyNotation = libs.accompanist.systemUiController)
-    implementation(dependencyNotation = projects.core.common)
-    kapt(dependencyNotation = libs.daggerCompiler)
+    implementation(dependencyNotation = Deps.accompanistSystemUiController)
 }

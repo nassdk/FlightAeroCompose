@@ -1,0 +1,27 @@
+package buildSrc.configurators.dependencies
+
+object Deps {
+    const val appCompat = "androidx.appcompat:appcompat:1.4.1"
+    const val coreKtx = "androidx.core:core-ktx:1.7.0"
+    const val composeActivity = "androidx.activity:activity-ktx:1.4.0"
+    const val dataStore = "androidx.datastore:datastore-preferences:1.0.0"
+    const val composeUi = "androidx.compose.ui:ui:1.0.5"
+    const val composeTooling = "androidx.compose.ui:ui-tooling-preview:1.0.5"
+    const val composeMaterial = "androidx.compose.material:material:1.0.5"
+    const val composeConstraint = "androidx.constraintlayout:constraintlayout-compose:1.0.0-beta02"
+    const val accompanistNavAnimation = "com.google.accompanist:accompanist-navigation-animation:0.24.1-alpha"
+    const val accompanistSystemUiController = "com.google.accompanist:accompanist-systemuicontroller:0.24.1-alpha"
+    const val accompanistPlaceholder = "com.google.accompanist:accompanist-placeholder-material:0.24.1-alpha"
+    const val dagger = "com.google.dagger:dagger:2.40.5"
+    const val daggerCompiler = "com.google.dagger:dagger-compiler:2.40.5"
+    const val timber = "com.jakewharton.timber:timber:4.7.1"
+    const val serializationJson = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.1"
+    const val serializationConverter = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0"
+    const val retrofit = "com.squareup.retrofit2:retrofit:2.9.0"
+    const val material = "com.google.android.material:material:1.4.0"
+    const val okhttp = "com.squareup.okhttp3:okhttp:4.9.3"
+    const val okhttpLogging = "com.squareup.okhttp3:logging-interceptor:4.9.3"
+    const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2"
+    const val mockitoKotlin = "org.mockito.kotlin:mockito-kotlin:3.2.0"
+    const val junit = "androidx.test.ext:junit:1.1.0"
+}

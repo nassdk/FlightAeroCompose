@@ -3,7 +3,3 @@ android {
         compose = true
     }
 }
-
-dependencies {
-    api(dependencyNotation = libs.accompanist.navanimation)
-}

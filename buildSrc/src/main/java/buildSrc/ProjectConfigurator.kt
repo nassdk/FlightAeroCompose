@@ -1,4 +1,4 @@
-package configurator
+package buildSrc
 
 import org.gradle.api.Project
 

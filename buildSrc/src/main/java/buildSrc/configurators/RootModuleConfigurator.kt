@@ -1,5 +1,6 @@
-package configurator
+package buildSrc.configurators
 
+import buildSrc.ProjectConfigurator
 import org.gradle.api.Project
 import org.gradle.api.tasks.Delete
 import org.gradle.kotlin.dsl.register

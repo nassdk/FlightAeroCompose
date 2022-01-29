@@ -1,3 +1,5 @@
+import buildSrc.configurators.dependencies.Deps
+
 android {
     buildFeatures {
         compose = true
@@ -6,16 +8,8 @@ android {
 
 dependencies {
 
-    projects.run {
-        implementation(dependencyNotation = core.common)
-    }
-
-    libs.run {
-        implementation(dependencyNotation = androidx.activityCompose)
-        implementation(dependencyNotation = accompanist.systemUiController)
-
-        kapt(dependencyNotation = daggerCompiler)
-    }
+    implementation(dependencyNotation = Deps.composeActivity)
+    implementation(dependencyNotation = Deps.accompanistSystemUiController)
 
     File("$rootDir/feature").listFiles()
         ?.filter { it.isDirectory }
