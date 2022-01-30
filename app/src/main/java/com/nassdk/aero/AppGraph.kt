@@ -2,8 +2,8 @@ package com.nassdk.aero
 
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.runtime.Composable
-import com.google.accompanist.navigation.animation.AnimatedNavHost
-import com.google.accompanist.navigation.animation.rememberAnimatedNavController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.rememberNavController
 import com.nassdk.aero.mediators.MediatorManager
 import com.nassdk.common.extensions.aeroComposable
 import com.nassdk.common.extensions.composeViewModel
@@ -13,7 +13,6 @@ import com.nassdk.flights.presentation.ARG_FLIGHT_ENTITY
 import com.nassdk.flights.presentation.FlightsScreen
 import com.nassdk.flow.presentation.FlowScreen
 import com.nassdk.navigation.Screens
-import com.nassdk.navigation.TransitionType
 import com.nassdk.profile.domain.entity.SettingsBundle
 import com.nassdk.profile.presentation.profile.ProfileScreen
 import com.nassdk.profile.presentation.settings.SettingsScreen
@@ -25,16 +24,15 @@ fun MainGraph(
     settingsState: SettingsBundle,
     onSettingsChanged: (SettingsBundle) -> Unit,
 ) {
-    val navController = rememberAnimatedNavController()
+    val navController = rememberNavController()
 
-    AnimatedNavHost(
+    NavHost(
         navController = navController,
         startDestination = Screens.Splash.route,
         builder = {
 
             aeroComposable(
                 target = Screens.Splash,
-                transitionType = TransitionType.NONE,
                 content = {
 
                     val viewModel = composeViewModel {
@@ -76,14 +74,12 @@ fun MainGraph(
 
             aeroComposable(
                 target = Screens.Flow,
-                transitionType = TransitionType.NONE,
                 content = {
                     FlowScreen(
                         isDarkMode = settingsState.isDarkMode,
                         flowGraphBuilder = {
                             aeroComposable(
                                 target = Screens.Flights,
-                                transitionType = TransitionType.NONE,
                                 content = {
 
                                     val viewModel = composeViewModel {
@@ -99,7 +95,6 @@ fun MainGraph(
 
                             aeroComposable(
                                 target = Screens.Profile,
-                                transitionType = TransitionType.NONE,
                                 content = { ProfileScreen(navController = navController) }
                             )
                         }

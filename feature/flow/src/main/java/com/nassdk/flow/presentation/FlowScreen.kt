@@ -14,9 +14,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavGraphBuilder
+import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.google.accompanist.navigation.animation.AnimatedNavHost
-import com.google.accompanist.navigation.animation.rememberAnimatedNavController
+import androidx.navigation.compose.rememberNavController
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.nassdk.flow.domain.TabItem
 import com.nassdk.navigation.Screens
@@ -30,7 +30,7 @@ fun FlowScreen(
     flowGraphBuilder: NavGraphBuilder.() -> Unit,
     isDarkMode: Boolean,
 ) {
-    val navController = rememberAnimatedNavController()
+    val navController = rememberNavController()
     val navItems = arrayOf(TabItem.FLIGHTS, TabItem.PROFILE)
 
     val navBackStackEntry by navController.currentBackStackEntryAsState()
@@ -88,7 +88,7 @@ fun FlowScreen(
         },
         content = { padding ->
 
-            AnimatedNavHost(
+            NavHost(
                 navController = navController,
                 startDestination = Screens.Flights.route,
                 modifier = Modifier.padding(paddingValues = padding),
