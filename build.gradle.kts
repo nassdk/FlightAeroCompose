@@ -1,3 +1,5 @@
+import buildSrc.configurators.dependencies.Plugins
+
 buildscript {
 
     repositories {
@@ -12,8 +14,8 @@ buildscript {
     }
 }
 
-apply(plugin = "com.nassdk.flightaero.module-configurator")
+apply(plugin = Plugins.moduleConfigurator)
 
 subprojects {
-    apply(plugin = "com.nassdk.flightaero.module-configurator")
+    apply(plugin = Plugins.moduleConfigurator)
 }

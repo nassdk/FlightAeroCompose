@@ -9,4 +9,5 @@ object Plugins {
     const val parcelize = "kotlin-parcelize"
     const val ktAndroid = "kotlin-android"
     const val serialization = "kotlinx-serialization"
+    const val moduleConfigurator = "com.nassdk.flightaero.module-configurator"
 }
