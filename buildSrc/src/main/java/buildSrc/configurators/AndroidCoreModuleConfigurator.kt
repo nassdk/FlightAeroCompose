@@ -3,6 +3,7 @@ package buildSrc.configurators
 import buildSrc.ProjectConfigurator
 import buildSrc.configurators.dependencies.Config
 import buildSrc.configurators.dependencies.Plugins
+import buildSrc.configurators.dependencies.Version
 import com.android.build.gradle.BaseExtension
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
@@ -65,7 +66,7 @@ internal class AndroidCoreModuleConfigurator : ProjectConfigurator {
 
     private fun BaseExtension.composeOptionsConfigurator() {
         composeOptions {
-            kotlinCompilerExtensionVersion = "1.0.5"
+            kotlinCompilerExtensionVersion = Version.compose
         }
     }
 

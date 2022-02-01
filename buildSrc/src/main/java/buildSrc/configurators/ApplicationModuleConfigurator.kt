@@ -76,7 +76,7 @@ internal class ApplicationModuleConfigurator : ProjectConfigurator {
         }
     }
 
-    private fun AppExtension.kotlinOptionsConfigurator(project: Project) {
+    private fun kotlinOptionsConfigurator(project: Project) {
         project.tasks.withType<KotlinCompile> {
             kotlinOptions.jvmTarget = JavaVersion.VERSION_1_8.toString()
         }
