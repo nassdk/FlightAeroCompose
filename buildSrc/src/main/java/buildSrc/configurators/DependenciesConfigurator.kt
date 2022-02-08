@@ -39,7 +39,6 @@ internal class DependenciesConfigurator : ProjectConfigurator {
 
         implementDependency(dependency = Deps.appCompat)
         implementDependency(dependency = Deps.coreKtx)
-        implementDependency(dependency = Deps.accompanistPlaceholder)
         implementDependency(dependency = Deps.composeConstraint)
         implementDependency(dependency = Deps.composeMaterial)
         implementDependency(dependency = Deps.composeTooling)
