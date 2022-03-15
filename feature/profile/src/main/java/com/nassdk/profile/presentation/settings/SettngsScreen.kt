@@ -35,7 +35,7 @@ fun SettingsScreen(
             modifier = Modifier
                 .fillMaxWidth()
                 .background(color = AeroTheme.colors.secondaryBackground),
-            backButtonListener = { navController.popBackStack() }
+            startButtonListener = { navController.popBackStack() }
         )
 
         Row(

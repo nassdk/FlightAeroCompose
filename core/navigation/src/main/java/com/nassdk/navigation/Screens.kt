@@ -25,4 +25,8 @@ sealed class Screens : NavTarget {
     object FlightDetails : Screens() {
         override val route: String = "flight_details"
     }
+
+    object Favorites : Screens() {
+        override val route: String = "favorites"
+    }
 }

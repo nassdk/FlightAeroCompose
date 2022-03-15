@@ -39,6 +39,7 @@ internal class AndroidFeatureModuleConfigurator : ProjectConfigurator {
             apply(Plugins.ktAndroid)
             apply(Plugins.parcelize)
             apply(Plugins.kapt)
+            apply(Plugins.realm)
         }
     }
 

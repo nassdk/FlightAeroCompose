@@ -11,6 +11,7 @@ buildscript {
         classpath(dependencyNotation = buildSrc.configurators.dependencies.ClasspathDeps.gradle)
         classpath(dependencyNotation = buildSrc.configurators.dependencies.ClasspathDeps.kotlin)
         classpath(dependencyNotation = buildSrc.configurators.dependencies.ClasspathDeps.serialization)
+        classpath(dependencyNotation = buildSrc.configurators.dependencies.ClasspathDeps.realm)
     }
 }
 

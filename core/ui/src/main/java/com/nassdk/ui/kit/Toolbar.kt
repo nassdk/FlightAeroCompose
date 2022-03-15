@@ -1,5 +1,6 @@
 package com.nassdk.ui.kit
 
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.IconButton
@@ -16,17 +17,20 @@ import com.nassdk.ui.theme.AeroTheme
 fun Toolbar(
     title: String,
     modifier: Modifier = Modifier,
-    backButtonListener: () -> Unit,
+    @DrawableRes startDrawableRes: Int = R.drawable.icv_arrow_back,
+    @DrawableRes endDrawableRes: Int? = null,
+    endButtonListener: (() -> Unit)? = null,
+    startButtonListener: () -> Unit,
 ) {
     TopAppBar(
         modifier = modifier,
         backgroundColor = AeroTheme.colors.secondaryBackground,
         content = {
             IconButton(
-                onClick = { backButtonListener.invoke() },
+                onClick = { startButtonListener.invoke() },
                 content = {
                     Image(
-                        painter = painterResource(id = R.drawable.icv_arrow_back),
+                        painter = painterResource(id = startDrawableRes),
                         contentDescription = null
                     )
                 }
@@ -37,9 +41,22 @@ fun Toolbar(
                 style = AeroTheme.typegraphy.headerMedRoboto,
                 color = AeroTheme.colors.headerColor,
                 modifier = Modifier
+                    .weight(weight = 1f)
                     .padding(start = AeroTheme.dimens.dp16)
                     .align(alignment = Alignment.CenterVertically)
             )
+
+            if (endDrawableRes != null) {
+                IconButton(
+                    onClick = { endButtonListener?.invoke() },
+                    content = {
+                        Image(
+                            painter = painterResource(id = endDrawableRes),
+                            contentDescription = null
+                        )
+                    }
+                )
+            }
         }
     )
 }

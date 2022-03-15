@@ -110,9 +110,11 @@ fun ProfileScreen(navController: NavHostController) {
 
             Column(
                 modifier = Modifier
-                    .padding(start = AeroTheme.dimens.dp16,
+                    .padding(
+                        start = AeroTheme.dimens.dp16,
                         end = AeroTheme.dimens.dp16,
-                        top = 40.dp)
+                        top = 40.dp
+                    )
                     .constrainAs(
                         ref = personalActions,
                         constrainBlock = {
@@ -158,7 +160,7 @@ fun ProfileScreen(navController: NavHostController) {
                     Divider(color = AeroTheme.colors.dividerColor)
 
                     Button(
-                        onClick = { /*TODO*/ },
+                        onClick = { navController.navigate(target = Screens.Favorites) },
                         contentPadding = PaddingValues(all = AeroTheme.dimens.dp16),
                         shape = RoundedCornerShape(
                             bottomEnd = AeroTheme.dimens.dp16,
@@ -197,9 +199,11 @@ fun ProfileScreen(navController: NavHostController) {
                     navController.navigate(target = Screens.Settings)
                 },
                 modifier = Modifier
-                    .padding(top = AeroTheme.dimens.dp12,
+                    .padding(
+                        top = AeroTheme.dimens.dp12,
                         start = AeroTheme.dimens.dp16,
-                        end = AeroTheme.dimens.dp16)
+                        end = AeroTheme.dimens.dp16
+                    )
                     .constrainAs(
                         ref = settings,
                         constrainBlock = {

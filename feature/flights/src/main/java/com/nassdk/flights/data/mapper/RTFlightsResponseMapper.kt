@@ -2,6 +2,7 @@ package com.nassdk.flights.data.mapper
 
 import com.nassdk.common.base.BaseMapper
 import com.nassdk.common.extensions.orZero
+import com.nassdk.flights.data.db.FavoritesDataSource
 import com.nassdk.flights.data.network.dto.FlightDto
 import com.nassdk.flights.data.network.dto.RTFlightsResponseDto
 import com.nassdk.flights.domain.entity.FlightEntity
@@ -10,11 +11,12 @@ import com.nassdk.flights.domain.entity.PaginationEntity
 import com.nassdk.flights.domain.entity.RTFlightsEntity
 import java.text.ParseException
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Locale
 import javax.inject.Inject
 
-internal class RTFlightsResponseMapper @Inject constructor() :
-    BaseMapper<RTFlightsResponseDto, RTFlightsEntity> {
+internal class RTFlightsResponseMapper @Inject constructor(
+    private val favoritesDataSource: FavoritesDataSource
+) : BaseMapper<RTFlightsResponseDto, RTFlightsEntity> {
 
     override fun map(from: RTFlightsResponseDto): RTFlightsEntity {
 
@@ -41,6 +43,7 @@ internal class RTFlightsResponseMapper @Inject constructor() :
                 arrTime = arrival.estimated.convert2ProperPattern(pattern = TIME_PATTERN).orEmpty(),
                 depDay = departure.estimated.convert2ProperPattern(pattern = DAY_PATTERN).orEmpty(),
                 depTime = departure.estimated.convert2ProperPattern(pattern = TIME_PATTERN).orEmpty(),
+                isFavorite = favoritesDataSource.isFlightFavorite(flight.flightInfo.number),
                 flightTime = calculateFlightTime(
                     arrivalTime = arrival.estimated,
                     departureTime = departure.estimated

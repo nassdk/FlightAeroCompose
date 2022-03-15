@@ -10,4 +10,5 @@ object Plugins {
     const val ktAndroid = "kotlin-android"
     const val serialization = "kotlinx-serialization"
     const val moduleConfigurator = "com.nassdk.flightaero.module-configurator"
+    const val realm = "realm-android"
 }

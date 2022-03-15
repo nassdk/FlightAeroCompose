@@ -7,10 +7,11 @@ import androidx.navigation.compose.rememberNavController
 import com.nassdk.aero.mediators.MediatorManager
 import com.nassdk.common.extensions.aeroComposable
 import com.nassdk.common.extensions.composeViewModel
-import com.nassdk.flightdetails.presentation.FlightDetailsScreen
 import com.nassdk.flights.domain.entity.FlightEntity
-import com.nassdk.flights.presentation.ARG_FLIGHT_ENTITY
-import com.nassdk.flights.presentation.FlightsScreen
+import com.nassdk.flights.presentation.details.FlightDetailsScreen
+import com.nassdk.flights.presentation.favorites.FavoritesScreen
+import com.nassdk.flights.presentation.list.ARG_FLIGHT_ENTITY
+import com.nassdk.flights.presentation.list.FlightsScreen
 import com.nassdk.flow.presentation.FlowScreen
 import com.nassdk.navigation.Screens
 import com.nassdk.profile.domain.entity.SettingsBundle
@@ -55,18 +56,34 @@ fun MainGraph(
             )
 
             aeroComposable(
+                target = Screens.Favorites,
+                content = {
+
+                    val viewModel = composeViewModel {
+                        MediatorManager.flightsMediator.getApi().provideFavoritesVM()
+                    }
+
+                    FavoritesScreen(navController = navController, viewModel = viewModel)
+                }
+            )
+
+            aeroComposable(
                 target = Screens.FlightDetails,
                 content = {
+
                     val entity = navController.previousBackStackEntry
                         ?.arguments
-                        ?.getParcelable<FlightEntity>(ARG_FLIGHT_ENTITY) ?: return@aeroComposable
+                        ?.getParcelable<FlightEntity>(ARG_FLIGHT_ENTITY)
+                        ?: return@aeroComposable
 
-                    val mappedEntity = MediatorManager.flightDetailsMediator.mapFlightEntity(
-                        entity = entity
-                    )
+                    val viewModel = composeViewModel {
+                        MediatorManager.flightsMediator.getApi().provideFlightDetailsVM(
+                            entity = entity
+                        )
+                    }
 
                     FlightDetailsScreen(
-                        entity = mappedEntity,
+                        viewModel = viewModel,
                         navController = navController
                     )
                 }
@@ -83,7 +100,7 @@ fun MainGraph(
                                 content = {
 
                                     val viewModel = composeViewModel {
-                                        MediatorManager.flightsMediator.getApi().provideViewModel()
+                                        MediatorManager.flightsMediator.getApi().provideFlightsVM()
                                     }
 
                                     FlightsScreen(

@@ -15,5 +15,6 @@ data class FlightEntity(
     val depDay: String,
     val arrTime: String,
     val depTime: String,
-    val flightTime: String
+    val flightTime: String,
+    val isFavorite: Boolean
 ) : Parcelable
