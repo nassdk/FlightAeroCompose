@@ -3,7 +3,7 @@ package buildSrc.configurators.dependencies
 internal object Version {
     const val kotlin = "1.5.31"
     const val realm = "10.10.1"
-    const val gradle = "7.0.4"
+    const val gradle = "7.1.0"
     const val appCompat = "1.4.1"
     const val coreKtx = "1.7.0"
     const val composeActivity = "1.4.0"
