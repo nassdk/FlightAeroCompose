@@ -17,7 +17,7 @@ class AppActivity : ComponentActivity() {
 
     @Inject lateinit var viewModel: AppViewModel
 
-    @ExperimentalAnimationApi
+    @OptIn(ExperimentalAnimationApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         AppDelegate.app.appComponent.inject(app = this)
         super.onCreate(savedInstanceState)

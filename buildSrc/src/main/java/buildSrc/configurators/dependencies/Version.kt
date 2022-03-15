@@ -1,7 +1,7 @@
 package buildSrc.configurators.dependencies
 
 internal object Version {
-    const val kotlin = "1.5.31"
+    const val kotlin = "1.6.10"
     const val realm = "10.10.1"
     const val gradle = "7.1.0"
     const val appCompat = "1.4.1"
@@ -9,7 +9,7 @@ internal object Version {
     const val composeActivity = "1.4.0"
     const val navigation = "2.4.0"
     const val dataStore = "1.0.0"
-    const val compose = "1.0.5"
+    const val compose = "1.1.1"
     const val composeConstraint = "1.0.0-beta02"
     const val accompanist = "0.24.1-alpha"
     const val lifecycle = "2.4.0"
